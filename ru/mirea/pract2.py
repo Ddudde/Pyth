@@ -1,15 +1,3 @@
-"""
-tabl = [["sudadman40@mail.ru", "Вадим Шудадман", "true;0.21"],
-["odissej89@rambler.ru", "Одиссей Фагикин", "true;0.62"],
-["netezin5@yahoo.com", "Петр Нетецин", "true;0.72"]]
-
-tabl = [["dovezko90@gmail.com", "Самир Довезко", "false;0.87"],
-["samir56@rambler.ru", "Самир Читли", "false;0.91"],
-["kirill82@rambler.ru", "Кирилл Тишянц", "true;0.20"],
-["semen68@yahoo.com", "Семен Гечий", "true;0.23"]]
-"""
-
-
 def transpose(matr):
     res = []
     n = len(matr)
@@ -46,10 +34,27 @@ def perv(matr):
     for i in range(m):
         matr[0][i] = matr[0][i].replace('@', '[at]')
 
-tabl = [["sudadman40@mail.ru", "Вадим Шудадман", "true;0.21"],
-["odissej89@rambler.ru", "Одиссей Фагикин", "true;0.62"],
-["netezin5@yahoo.com", "Петр Нетецин", "true;0.72"]]
-tabl = transpose(tabl)
-zakl(tabl)
-vtor(tabl)
-perv(tabl)
+
+def f21(x):
+    return 0
+
+
+def f22(x):
+    fd = int(bin(x), 2)
+    fd1 = fd & 0b00001111000000000000000000000000
+    fd2 = fd & 0b11110000000000000000000000000000
+    fd3 = fd & 0b00000000111111111111111111111111
+    fd2 = fd2 >> 4
+    fd = fd2 | fd3
+    fd1 = fd1 >> 24
+    fd = fd << 4
+    fd = fd | fd1
+    return fd
+
+
+def f23(tabl):
+    tabl = transpose(tabl)
+    zakl(tabl)
+    vtor(tabl)
+    perv(tabl)
+    return tabl
